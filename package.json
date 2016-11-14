@@ -4,10 +4,21 @@
   "description": "Create custom errors for your JavaScript projects",
   "main": "index.js",
   "scripts": {
+    "uglify": "npm run uglify-npm && npm run uglify-browser",
+    "uglify-npm": "uglifyjs index.js --output index.min.js --source-map index.min.js.map",
+    "uglify-browser": "uglifyjs hellrazor.js --output hellrazor.min.js --source-map hellrazor.min.js.map",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "JavaScript"
+    "JavaScript",
+    "javascript",
+    "js",
+    "node.js",
+    "custom error",
+    "custom errors",
+    "hellrazor",
+    "Buglife",
+    "Bug Life"
   ],
   "author": "Khaled Al-Ansari <khaledelansari@gmail.com> (http://khaledelansari.com/)",
   "license": "ISC"
