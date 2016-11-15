@@ -29,5 +29,9 @@
   "bugs": {
     "url": "https://github.com/KhaledElAnsari/Hellrazor.js/issues"
   },
-  "homepage": "https://github.com/KhaledElAnsari/Hellrazor.js#readme"
+  "homepage": "https://github.com/KhaledElAnsari/Hellrazor.js#readme",
+  "devDependencies": {
+    "rimraf": "^2.5.4",
+    "uglifyjs": "^2.4.10"
+  }
 }
