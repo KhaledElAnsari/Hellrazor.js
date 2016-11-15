@@ -26,11 +26,11 @@ var e = Hellrazor.createError("erropac", "use hellrazor 'cause Chrome can't alwa
 
 try {
   // you can re-assign the message if you want
-  throw new e("newMsg");
+  throw new e("new message");
 }
 catch (err) {
   console.log(err.name); // erropac
-  console.log(err.message); // use hellrazor 'cause Chrome can't always be your savior
+  console.log(err.message); // new message
   console.log(err.stack);
   console.log(err instanceof Error); // true
   console.log(err instanceof e); // true
