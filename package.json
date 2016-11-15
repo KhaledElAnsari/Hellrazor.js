@@ -4,6 +4,10 @@
   "description": "Create custom errors for your JavaScript projects",
   "main": "index.js",
   "scripts": {
+    "build": "npm run clean && npm run splice && npm run uglify",
+    "clean": "rimraf *.min.* hellrazor.js",
+    "browser": "cpy index.js --rename=hellrazor.js ./",
+    "splice": "head -n -9 index.js > hellrazor.js",
     "uglify": "npm run uglify-npm && npm run uglify-browser",
     "uglify-npm": "uglifyjs index.js --output index.min.js --source-map index.min.js.map",
     "uglify-browser": "uglifyjs hellrazor.js --output hellrazor.min.js --source-map hellrazor.min.js.map",
@@ -31,6 +35,7 @@
   },
   "homepage": "https://github.com/KhaledElAnsari/Hellrazor.js#readme",
   "devDependencies": {
+    "cpy-cli": "^1.0.1",
     "rimraf": "^2.5.4",
     "uglifyjs": "^2.4.10"
   }
