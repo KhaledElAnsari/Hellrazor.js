@@ -1,6 +1,6 @@
 {
   "name": "hellrazor",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "Create custom errors for your JavaScript projects",
   "main": "index.js",
   "scripts": {
@@ -38,5 +38,6 @@
     "cpy-cli": "^1.0.1",
     "rimraf": "^2.5.4",
     "uglifyjs": "^2.4.10"
-  }
+  },
+  "dependencies": {}
 }
