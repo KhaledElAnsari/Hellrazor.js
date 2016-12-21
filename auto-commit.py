@@ -56,8 +56,8 @@ class AutoCommit:
 
             print(self.options)
             execute("git add .")
-            execute("git commit -m 'toz'")
-            # execute("git commit -m " + self.options["commit"])
+            ccc = "git commit -m " + self.options["commit"]
+            execute("git commit -m 'twew'")
         except ValueError as e:
             print(e[1] + ": " + e[0])
 
