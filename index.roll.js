@@ -1,6 +1,7 @@
 var Hellrazor = (function () {
   this.createError = function(name, message) {
 
+
     
     if(!name) {
       throw new Error("name: is not defined");
