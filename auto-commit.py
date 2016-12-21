@@ -22,6 +22,12 @@ class AutoCommit:
                             dest="commit",
                             default=None, # default message for the commit
                             help="Contain the message for the commit")
+        parser.add_argument("-b", "--branch", # argument names
+                            nargs=1, # only one message allowed
+                            type=str,
+                            dest="branch",
+                            default=None, # default message for the commit
+                            help="The git branch you're working on")
         args = parser.parse_args()
         return args
 
@@ -38,10 +44,12 @@ class AutoCommit:
     def execute_commad(self):
         try:
             actions = ["pull", "push"]
-            if self.options["action"] == None:
+            if not self.options["action"]:
                 raise ValueError('can not be empty', 'action')
             if self.options["action"] not in actions:
                 raise ValueError('can only be `push` or `pull`', '--action/ -a')
+            if self.options["action"] == "push" and self.options["branch"] == None:
+                raise ValueError('please enter branch name to do the `push`', '--branch/ -b')
 
             if not self.options["commit"] or self.options["commit"] == "auto":
                 random_string = ''.join(random.choice(string.lowercase) for i in range(10))
@@ -57,6 +65,7 @@ class AutoCommit:
             print(self.options)
             execute("git add .")
             execute("git commit -m '%s'" % (self.options["commit"], ))
+            execute("git %s origin %s" % (self.options["action"], self.options["branch"]))
         except ValueError as e:
             print(e[1] + ": " + e[0])
 
