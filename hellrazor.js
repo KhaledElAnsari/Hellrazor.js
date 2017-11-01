@@ -1,51 +1,41 @@
 var Hellrazor = (function () {
-  this.createError = function(name, message) {
-    if(!name) {
-      throw new Error("name: is not defined");
-    }
-    else if(typeof name != "string") {
-      throw new Error("name: is not of type String");
+  this.createError = function(name, defaultMsg) {
+    if(!name || typeof name !== "string") {
+      throw new Error("Please define a valid error name of type string");
     }
 
-    if(!message) {
-      throw new Error("message: is not defined");
-    }
-    else if(typeof message != "string") {
-      throw new Error("message: is not of type String");
+    if(!defaultMsg || typeof defaultMsg !== "string") {
+      throw new Error("Please define a valid default message of type string");
     }
 
     function customError(msg) {
       var tmp = Error.call(this); // temporary Object from the Error Object
 
-      if(msg) {
-        if(typeof msg != "string") {
-          throw new Error("message: is not of type String");
-        }
+      if(msg && typeof msg !== "string") {
+        throw new Error("message: is not of type String");
       }
-
+      
       if(Object.defineProperties) {
         Object.defineProperties(this, {
-          "stack": {
+          stack: {
             value: tmp.stack
           },
-          "name": {
+          name: {
             value: name
           },
-          "message": {
-            value: (msg || message)
+          message: {
+            value: (msg || defaultMsg)
           }
         });
-      }
-      else {
+      } else {
         this.name = name;
-        this.message = msg || message;
+        this.message = msg || defaultMsg;
       }
     }
 
     if(Object.create) {
       customError.prototype = Object.create(Error.prototype);
-    }
-    else {
+    } else {
       customError.prototype = new Error();
     }
     customError.prototype.constructor = customError;
@@ -54,4 +44,4 @@ var Hellrazor = (function () {
   };
 
   return this;
-}());
+} ());
