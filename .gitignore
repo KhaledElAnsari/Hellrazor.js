@@ -6,3 +6,6 @@ auto-commit.py
 # Folders
 node_modules
 dist
+
+# OS Files
+.DS_Store
