@@ -1,4 +1,5 @@
 # Files
+.DS_Store
 about.txt
 index.html
 auto-commit.py
